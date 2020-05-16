@@ -13,16 +13,16 @@ public class SinglyLinkedList {
     Node head;
 
     public boolean add(Object data) {
-        Node nodeReferance = new Node(data);
+        Node nodeReference = new Node(data);
         if (head == null) {
-            head = nodeReferance;
+            head = nodeReference;
             return true;
         }
         Node traverse = head;
         while (traverse.next != null) {
             traverse = traverse.next;
         }
-        traverse.next = nodeReferance;
+        traverse.next = nodeReference;
         return true;
     }
 
@@ -39,19 +39,19 @@ public class SinglyLinkedList {
     }
 
     public boolean addFirst(Object data) {
-        Node nodeReferance = new Node(data);
-        nodeReferance.next = head;
-        head = nodeReferance;
+        Node nodeReference = new Node(data);
+        nodeReference.next = head;
+        head = nodeReference;
         return true;
     }
 
     public boolean addLast(Object data) {
-        Node nodeReferance = new Node(data);
+        Node nodeReference = new Node(data);
         Node traverse = head;
         while (traverse.next != null) {
             traverse = traverse.next;
         }
-        traverse.next = nodeReferance;
+        traverse.next = nodeReference;
         return true;
     }
 
@@ -142,7 +142,7 @@ public class SinglyLinkedList {
         while (traverse.next != null) {
             traverse = traverse.next;
             count++;
-            if (traverse.data.equals(data)){
+            if (traverse.data.equals(data)) {
                 return count;
             }
         }
@@ -158,7 +158,7 @@ public class SinglyLinkedList {
             traverse = traverse.next;
             count++;
         }
-        if (traverse.data.equals(data)){
+        if (traverse.data.equals(data)) {
             return count;
         }
         return -1;
@@ -188,6 +188,7 @@ public class SinglyLinkedList {
         name.remove("Singh");
         name.remove("Sagar");
         name.remove("Abhi");
+        name.add("Abhitasnhu", 0);
         System.out.println(name.size(name));
         System.out.println(name);
         System.out.println(name.contains("Abhitanshu"));
