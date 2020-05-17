@@ -66,21 +66,21 @@ public class SinglyLinkedList {
     public Object deleteLast() {
         if (head == null)
             throw new NullPointerException("List is empty");
-        if (head.next == null) {
-            Object data = head.data;
-            head = null;
-            return data;
-        }
+//        if (head.next == null) {
+//            Object data = head.data;
+//            head = null;
+//            return data;
+//        }
         Node traverse = head, tempTraverse = head;
         while (traverse.next != null) {
             tempTraverse = traverse;
             traverse = traverse.next;
         }
         Object data = traverse.data;
-        if (traverse.next != null)
-            tempTraverse.next = traverse.next;
-        else
+        if (tempTraverse.next != null)
             tempTraverse.next = null;
+        else
+            head = null;
         return data;
     }
 
@@ -167,11 +167,12 @@ public class SinglyLinkedList {
     public String toString() {
         String print = "[";
         Node traverse = head;
-        while (traverse.next != null) {
-            print += traverse.data + ",";
+        while (traverse != null) {
+            print += traverse.data;
+            if (traverse.next != null)
+                print += ",";
             traverse = traverse.next;
         }
-        print += traverse.data;
         return print + "]";
     }
 
