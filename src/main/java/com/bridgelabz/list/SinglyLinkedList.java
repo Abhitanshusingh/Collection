@@ -66,11 +66,6 @@ public class SinglyLinkedList {
     public Object deleteLast() {
         if (head == null)
             throw new NullPointerException("List is empty");
-//        if (head.next == null) {
-//            Object data = head.data;
-//            head = null;
-//            return data;
-//        }
         Node traverse = head, tempTraverse = head;
         while (traverse.next != null) {
             tempTraverse = traverse;
