@@ -26,15 +26,23 @@ public class SinglyLinkedList {
         return true;
     }
 
-    public boolean add(Object data, int index) {
-        if (index == 0)
-            return addFirst(data);
+    public boolean add(int index, Object data) {
         Node nodeReferance = new Node(data);
+        if (index == 0) {
+            nodeReferance.next = head;
+            head = nodeReferance;
+            return true;
+        }
         Node traverse = head;
-        while (index > 0 && traverse.next != null) {
+        while (index > 1 && traverse != null) {
             traverse = traverse.next;
             index--;
         }
+        if (traverse == null) {
+            return false;
+        }
+        nodeReferance.next = traverse.next;
+        traverse.next = nodeReferance;
         return true;
     }
 
@@ -79,7 +87,7 @@ public class SinglyLinkedList {
         return data;
     }
 
-    public int size(Object data) {
+    public int size() {
         if (head == null)
             throw new NullPointerException("List is empty");
         int count = 1;
@@ -184,8 +192,9 @@ public class SinglyLinkedList {
         name.remove("Singh");
         name.remove("Sagar");
         name.remove("Abhi");
-        name.add("Abhitasnhu", 0);
-        System.out.println(name.size(name));
+        name.add(0, "King");
+        name.add(4, "Thakur");
+        System.out.println(name.size());
         System.out.println(name);
         System.out.println(name.contains("Abhitanshu"));
         System.out.println(name.contains("Abhi"));
